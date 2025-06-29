@@ -22,6 +22,7 @@ public class LoginDao {
         connection = new Conexao().getConexao(); 
     }
         
+    
     public Login buscarUsuario(String usuario, String senha) throws SQLException {
         String sql = "select * from login where usuario = ? and senha = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);

@@ -4,10 +4,20 @@
  */
 package service;
 
+import dao.LoginDao;
+import entity.Login;
+import java.sql.SQLException;
+import view.LoginScreen;
+
 /**
  *
  * @author Breno
  */
 public class LoginService {
     
+    public Login loginExiste(String usuario, String senha) throws SQLException{
+        LoginDao dao = new LoginDao();
+        return dao.buscarUsuario(usuario, senha);
+    }
+     
 }
