@@ -4,6 +4,8 @@
  */
 package dao;
 
+import entity.Login;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,16 +16,15 @@ import java.sql.SQLException;
  */
 public class LoginDao {
     
-    private Conexao conexao;
+    private Connection connection;
+    
     public LoginDao() throws SQLException {
-        conexao = new Conexao(); 
+        connection = new Conexao().getConexao(); 
     }
-    
-    
-    
-     /*public Login buscarUsuario(String usuario, String senha) throws SQLException {
+        
+    public Login buscarUsuario(String usuario, String senha) throws SQLException {
         String sql = "select * from login where usuario = ? and senha = ?";
-        PreparedStatement preparedStatement = conexao.prepareStatement(sql);
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, usuario);
         preparedStatement.setString(2, senha);
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -35,6 +36,6 @@ public class LoginDao {
             return login;
         }
         return null;
-    }*/
+    }
     
 }
