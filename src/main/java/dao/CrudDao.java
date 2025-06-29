@@ -8,6 +8,9 @@ package dao;
  *
  * @author Breno
  */
-public interface CrudDao {
+public interface CrudDao<T> {
+    public int save();
+    public T findById();
+    
     
 }
