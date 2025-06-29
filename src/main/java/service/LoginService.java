@@ -7,7 +7,6 @@ package service;
 import dao.LoginDao;
 import entity.Login;
 import java.sql.SQLException;
-import view.LoginScreen;
 
 /**
  *

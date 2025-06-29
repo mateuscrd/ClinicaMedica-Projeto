@@ -9,13 +9,12 @@ import service.LoginService;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author Breno
  */
 public class LoginScreen extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(LoginScreen.class.getName());
 
     /**
@@ -55,6 +54,11 @@ public class LoginScreen extends javax.swing.JFrame {
         });
 
         botaoSair.setText("Sair");
+        botaoSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoSairActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,31 +108,59 @@ public class LoginScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoAceitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAceitarActionPerformed
-        LoginService service = new LoginService();
-        
-        String login = campoLogin.getText();
-        String senha = new String(campoSenha.getPassword());
-        
-        
-        Login usuario = null;
-        
-        try {
-             usuario = service.loginExiste(login, senha);
-        } catch (SQLException ex) {
-             JOptionPane.showMessageDialog(this, "Sistema indisponivel!!!!");
+        boolean validado = validarDados();
+
+        if (validado == true) {
+            LoginService service = new LoginService();
+
+            String login = campoLogin.getText();
+            String senha = new String(campoSenha.getPassword());
+
+            Login usuario = null;
+
+            try {
+                usuario = service.loginExiste(login, senha);
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, "Sistema indisponivel!!!!");
+            }
+
+            if (usuario != null) {
+                //direcionar para tela de Menus
+                acessarMenu();
+            } else {
+                JOptionPane.showMessageDialog(this, "Dados de Login Invalido!");
+                campoLogin.setText("");
+                campoSenha.setText("");
+            }
         }
-        
-        if(usuario != null){
-            //direcionar para tela de Menus
-        }
-        else{
-            JOptionPane.showMessageDialog(this, "Dados de Login Invalido!");
-            campoLogin.setText("");
-            campoSenha.setText("");
-        }
-        
-        
+
     }//GEN-LAST:event_botaoAceitarActionPerformed
+
+    private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
+            System.exit(0);
+    }//GEN-LAST:event_botaoSairActionPerformed
+
+    private boolean validarDados() {
+        if (campoLogin.getText().isEmpty() == true) {
+            JOptionPane.showMessageDialog(this, "Campo login é obrigatório, por favor preenche-o!");
+            campoLogin.requestFocusInWindow();
+            return false;
+        }
+
+        if (campoSenha.getPassword().length == 0) {
+            JOptionPane.showMessageDialog(this, "Campo senha é obrigatório, por favor preencha-o!");
+            campoLogin.requestFocusInWindow();
+            return false;
+        }
+        return true;
+    }
+
+    private void acessarMenu() {
+        /*MenuScreen menuScreen = new MenuScreen();
+        menuScreen.pack();
+        menuScreen.setVisible(true);
+        dispose();*/
+    }
 
     /**
      * @param args the command line arguments
