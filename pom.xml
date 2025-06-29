@@ -10,4 +10,13 @@
         <maven.compiler.release>17</maven.compiler.release>
         <exec.mainClass>Login</exec.mainClass>
     </properties>
+    
+     <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
 </project>
