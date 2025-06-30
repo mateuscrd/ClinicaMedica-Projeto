@@ -15,7 +15,7 @@ import java.sql.SQLException;
 public class Conexao {
     private String url = "jdbc:mysql://localhost:3306/clinica_medica?useSSL=false&allowPublicKeyRetrieval=true";
     private String user = "root";
-    private String senha = "123456";
+    private String senha = "@Mateus050905";
 
     private final Connection connection;
     

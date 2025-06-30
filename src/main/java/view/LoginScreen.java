@@ -14,6 +14,7 @@ import view.paciente.FormPacienteScreen;
  *
  * @author Breno
  */
+
 public class LoginScreen extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(LoginScreen.class.getName());
@@ -46,6 +47,12 @@ public class LoginScreen extends javax.swing.JFrame {
         jLabel1.setText("Senha");
 
         jLabel2.setText("Login");
+
+        campoSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoSenhaActionPerformed(evt);
+            }
+        });
 
         botaoAceitar.setText("Aceitar");
         botaoAceitar.addActionListener(new java.awt.event.ActionListener() {
@@ -141,6 +148,10 @@ public class LoginScreen extends javax.swing.JFrame {
             System.exit(0);
     }//GEN-LAST:event_botaoSairActionPerformed
 
+    private void campoSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoSenhaActionPerformed
+
     private boolean validarDados() {
         if (campoLogin.getText().isEmpty() == true) {
             JOptionPane.showMessageDialog(this, "Campo login é obrigatório, por favor preenche-o!");
@@ -203,3 +214,4 @@ public class LoginScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
+

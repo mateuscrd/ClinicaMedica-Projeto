@@ -4,28 +4,34 @@
  */
 package entity;
 
-import java.time.LocalDate;
 
 /**
  *
  * @author User
  */
+import java.time.LocalDate;
+
 public class Paciente {
+
     private int id;
-    private String nome;
-    private int idade;
-    private char sexo;
-    private String cpf;
-    private String rua;
+    private String nomeCompleto;
+    private String numeroRg;
+    private String orgaoEmissor;
+    private String numeroCpf;
+    private String endereco;
     private String numero;
     private String complemento;
     private String bairro;
     private String cidade;
     private String estado;
-    private String contato;
-    private String email;
+    private String telefone;
+    private String celular;
     private LocalDate dataNascimento;
+    private String sexo;
+    private boolean possuiConvenio;
+    private Convenio convenio; // Objeto para representar a chave estrangeira
 
+    // Getters e Setters
     public int getId() {
         return id;
     }
@@ -34,44 +40,44 @@ public class Paciente {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeCompleto() {
+        return nomeCompleto;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeCompleto(String nomeCompleto) {
+        this.nomeCompleto = nomeCompleto;
     }
 
-    public int getIdade() {
-        return idade;
+    public String getNumeroRg() {
+        return numeroRg;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void setNumeroRg(String numeroRg) {
+        this.numeroRg = numeroRg;
     }
 
-    public char getSexo() {
-        return sexo;
+    public String getOrgaoEmissor() {
+        return orgaoEmissor;
     }
 
-    public void setSexo(char sexo) {
-        this.sexo = sexo;
+    public void setOrgaoEmissor(String orgaoEmissor) {
+        this.orgaoEmissor = orgaoEmissor;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getNumeroCpf() {
+        return numeroCpf;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setNumeroCpf(String numeroCpf) {
+        this.numeroCpf = numeroCpf;
     }
 
-    public String getRua() {
-        return rua;
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setRua(String rua) {
-        this.rua = rua;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
     public String getNumero() {
@@ -114,20 +120,20 @@ public class Paciente {
         this.estado = estado;
     }
 
-    public String getContato() {
-        return contato;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setContato(String contato) {
-        this.contato = contato;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
-    public String getEmail() {
-        return email;
+    public String getCelular() {
+        return celular;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCelular(String celular) {
+        this.celular = celular;
     }
 
     public LocalDate getDataNascimento() {
@@ -137,5 +143,28 @@ public class Paciente {
     public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
-    
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public boolean isPossuiConvenio() {
+        return possuiConvenio;
+    }
+
+    public void setPossuiConvenio(boolean possuiConvenio) {
+        this.possuiConvenio = possuiConvenio;
+    }
+
+    public Convenio getConvenio() {
+        return convenio;
+    }
+
+    public void setConvenio(Convenio convenio) {
+        this.convenio = convenio;
+    }
 }
