@@ -4,6 +4,7 @@ import entity.Login;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import service.LoginService;
+import view.paciente.FormPacienteScreen;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -160,6 +161,12 @@ public class LoginScreen extends javax.swing.JFrame {
         menuScreen.pack();
         menuScreen.setVisible(true);
         dispose();*/
+        
+        //excluir dps
+        FormPacienteScreen form = new FormPacienteScreen();
+        form.pack();
+        form.setVisible(true);
+        dispose();
     }
 
     /**
