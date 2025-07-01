@@ -17,9 +17,9 @@ import java.sql.SQLException;
  */
 public class PacienteService {
     
-    public boolean cadastrar(Paciente paciente) throws SQLException{
+    public void cadastrar(Paciente paciente) throws SQLException{
         PacienteDao dao = new PacienteDao();
-        return dao.cadastrar(paciente);
+        dao.cadastrarPaciente(paciente);
     }
    
     

@@ -37,7 +37,7 @@ public class FormPacienteScreen extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        campoIdade = new javax.swing.JTextField();
+        campoRg = new javax.swing.JTextField();
         campoCpf = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         botaoCadastrar = new javax.swing.JButton();
@@ -53,13 +53,13 @@ public class FormPacienteScreen extends javax.swing.JFrame {
 
         jLabel1.setText("Nome:");
 
-        jLabel2.setText("Idade");
+        jLabel2.setText("RG:");
 
         jLabel3.setText("CPF:");
 
-        campoIdade.addActionListener(new java.awt.event.ActionListener() {
+        campoRg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoIdadeActionPerformed(evt);
+                campoRgActionPerformed(evt);
             }
         });
 
@@ -85,10 +85,6 @@ public class FormPacienteScreen extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(90, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(170, 170, 170))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -99,7 +95,7 @@ public class FormPacienteScreen extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(campoIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(campoRg, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -111,6 +107,10 @@ public class FormPacienteScreen extends javax.swing.JFrame {
                         .addGap(74, 74, 74)
                         .addComponent(botaoSair)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(90, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(170, 170, 170))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,7 +124,7 @@ public class FormPacienteScreen extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoRg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(campoCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 242, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -140,23 +140,20 @@ public class FormPacienteScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoNomeActionPerformed
 
-    private void campoIdadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoIdadeActionPerformed
+    private void campoRgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoRgActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoIdadeActionPerformed
+    }//GEN-LAST:event_campoRgActionPerformed
 
     private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
            PacienteService service  = new PacienteService();
            
            Paciente paciente = new Paciente();
-           paciente.setNome(campoNome.getText());
-           paciente.setIdade(Integer.parseInt(campoIdade.getText()));
-           paciente.setCpf(campoCpf.getText());
+           paciente.setNomeCompleto(campoNome.getText());
+           paciente.setNumeroRg(campoRg.getText());
+           paciente.setNumeroCpf(campoCpf.getText());
            
         try {
-            boolean criado = service.cadastrar(paciente);
-            if(criado){
-                JOptionPane.showMessageDialog(this, "Paciente "+paciente.getNome()+" cadastrado com sucesso!");
-            }
+           service.cadastrar(paciente);
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(this, "Sistema indisponivel!!!!");
         }
@@ -195,8 +192,8 @@ public class FormPacienteScreen extends javax.swing.JFrame {
     private javax.swing.JButton botaoCadastrar;
     private javax.swing.JButton botaoSair;
     private javax.swing.JTextField campoCpf;
-    private javax.swing.JTextField campoIdade;
     private javax.swing.JTextField campoNome;
+    private javax.swing.JTextField campoRg;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

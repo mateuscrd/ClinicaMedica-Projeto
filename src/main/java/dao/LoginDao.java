@@ -19,7 +19,7 @@ public class LoginDao {
     private Connection connection;
     
     public LoginDao() throws SQLException {
-        connection = new Conexao().getConexao(); 
+        connection = new ConexaoDAO().conectaBD(); 
     }
         
     
